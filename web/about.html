@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>关于静寺 · 静寺 Still Temple</title>
+<meta name="description" content="静寺 Still Temple 是一间线上的山寺：不用注册、不用留名，进门坐一会儿就走。开源，可自建，附六语言版本与交流入口。">
+<link rel="canonical" href="https://stilltemple.app/about">
+<link rel="alternate" hreflang="zh-Hans" href="https://stilltemple.app/about">
+<link rel="alternate" hreflang="en" href="https://stilltemple.app/about">
+<link rel="alternate" hreflang="x-default" href="https://stilltemple.app/about">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于静寺 · 静寺 Still Temple">
+<meta property="og:description" content="线上山寺，进去坐一会儿。不用注册，不用留名。">
+<meta property="og:url" content="https://stilltemple.app/about">
+<meta property="og:image" content="https://stilltemple.app/assets/social-card.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --ink:#111312; --ink-2:#1a1d1b; --paper:#e8e2d6; --muted:#9a958b;
+    --gold:#c8a86a; --line:rgba(232,226,214,.16);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:"Songti SC","Noto Serif CJK SC",-apple-system,"PingFang SC","Microsoft YaHei",serif;
+    line-height:1.85;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:72px 24px 96px}
+  .brand{display:flex;align-items:baseline;gap:10px;margin-bottom:44px}
+  .brand b{font-size:20px;letter-spacing:.12em;font-weight:600}
+  .brand span{font-size:12px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+  h1{font-size:28px;font-weight:600;letter-spacing:.04em;margin:0 0 18px}
+  h2{font-size:15px;letter-spacing:.16em;color:var(--gold);margin:44px 0 14px;font-weight:600}
+  p{margin:0 0 14px;color:#cfc9bd}
+  p.lead{font-size:17px;color:var(--paper)}
+  ul{margin:0 0 14px;padding-left:1.1em;color:#cfc9bd}
+  li{margin-bottom:8px}
+  a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,168,106,.35)}
+  a:hover{border-bottom-color:var(--gold)}
+  .rule{height:1px;background:var(--line);margin:48px 0}
+  .links{display:grid;gap:10px;margin-top:6px}
+  .links a{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:14px 16px;border:1px solid var(--line);border-radius:2px;
+    background:var(--ink-2);border-bottom:1px solid var(--line);
+    transition:border-color .2s ease,transform .2s ease;
+  }
+  .links a:hover{border-color:rgba(200,168,106,.6);transform:translateY(-1px)}
+  .links em{font-style:normal;color:var(--muted);font-size:13px;letter-spacing:.02em}
+  .note{font-size:13px;color:var(--muted)}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:14px}
+  footer a{color:var(--muted);border-bottom:0}
+  @media (max-width:520px){.wrap{padding:48px 18px 72px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand"><b>静寺</b><span>Still Temple</span></div>
+
+  <h1>一间线上的山寺</h1>
+  <p class="lead">不用注册，不用留名，进门坐一会儿就走。</p>
+  <p>首尔有一座山寺，把整座寺院做进了网页：你能在佛堂里看见别人也坐着，能听见远处的钟，能拨动一串念珠。静寺是这件事的中文版本，也是一个可以自己部署的开源项目。</p>
+  <p>没有账号体系，没有排行榜，也没有聊天框。你来的时候，系统随机给一个法名；走的时候，名字就消失。我们不保存你是谁。</p>
+
+  <h2>在里面能做什么</h2>
+  <ul>
+    <li>走进一间佛堂，坐下，看烛火和烟。</li>
+    <li>拨动 108 颗念珠，可以记下自己拨了几轮。</li>
+    <li>看见同一间屋子里还有别人在坐，不打扰彼此。</li>
+    <li>换语言：中文、韩文、日文、英文、西班牙文、法文。</li>
+  </ul>
+
+  <h2>为什么开源</h2>
+  <p>这个项目的前端来自韩国原站的公开产物，佛像与音效按各自许可使用，具体署名写在 <a href="https://github.com/xxjrq/still-temple/blob/main/NOTICE.md" rel="noopener">NOTICE</a> 里。后端是我们用 Go 重写的，只依赖标准库，一个二进制就能跑起来。</p>
+  <p>代码放在 <a href="https://github.com/xxjrq/still-temple" rel="noopener">GitHub</a>，国内镜像在 <a href="https://gitee.com/xxjrq/still-temple" rel="noopener">Gitee</a>。想自己搭一间，克隆下来按 README 走就行；想改成你自己的一间，改文案和贴图也够。</p>
+
+  <h2>进来聊聊</h2>
+  <div class="links">
+    <a href="https://t.me/stilltemple" rel="noopener"><span>Telegram 频道</span><em>t.me/stilltemple</em></a>
+    <a href="https://github.com/xxjrq/still-temple/issues" rel="noopener"><span>GitHub Issues</span><em>提问题、报错、想加的功能</em></a>
+  </div>
+  <p class="note">微信群还在建，想进群先加微信 <b>haohaoxuexibbb</b>（备注「静寺」），或加 QQ <b>2265436738</b>，我拉你进去。</p>
+
+  <div class="rule"></div>
+
+  <h2>About (English)</h2>
+  <p>Still Temple is a mountain temple you can enter from a browser. No sign-up, no name, no chat. You step in, sit for a while, and leave — the name you were given disappears with you.</p>
+  <p>The front end comes from the original Korean site's public build; the Go backend is written from scratch with the standard library only. Sources and credits are listed in <a href="https://github.com/xxjrq/still-temple/blob/main/NOTICE.md" rel="noopener">NOTICE</a>. Clone it and run your own.</p>
+  <p>Talk to us: <a href="https://t.me/stilltemple" rel="noopener">t.me/stilltemple</a> · GitHub Issues. We don't run ads and we don't sell anything.</p>
+
+  <footer>
+    <a href="/zh">回寺院</a>
+    <a href="/">한국어</a>
+    <a href="/ja">日本語</a>
+    <a href="/en">English</a>
+    <a href="/es">Español</a>
+    <a href="/fr">Français</a>
+    <a href="/llms.txt">llms.txt</a>
+  </footer>
+</main>
+<script defer src="/assets/metrics.js"></script>
+</body>
+</html>

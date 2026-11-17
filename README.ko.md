@@ -12,6 +12,7 @@
 
 ![Still Temple](docs/screenshot.jpg)
 
+
 ## 무엇인가
 
 브라우저로 걸어 들어가는 3D 산사입니다.
@@ -79,6 +80,7 @@ cd web && python3 -m http.server 8080
 - WeChat: `haohaoxuexibbb` ("Still Temple" 남겨 주세요)
 - QQ: `2265436738`
 - WeChat 추가하면 그룹에 초대합니다. 온라인 공간, 1인 개발, 에셋 제작 이야기. 광고도, 출석 독려도 없습니다.
+- Telegram: https://t.me/stilltemple
 
 ## 로드맵
 

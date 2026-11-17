@@ -12,6 +12,7 @@
 
 ![Still Temple](docs/screenshot.jpg)
 
+
 ## これは何か
 
 ブラウザから入れる 3D のお寺です。
@@ -79,6 +80,7 @@ cd web && python3 -m http.server 8080
 - WeChat: `haohaoxuexibbb`（「Still Temple」と一言添えてください）
 - QQ: `2265436738`
 - WeChat を追加するとグループに招待します。オンライン空間、個人開発、素材の作り方の話。宣伝も連続ログインの促しもありません。
+- Telegram: https://t.me/stilltemple
 
 ## ロードマップ
 

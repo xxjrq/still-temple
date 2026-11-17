@@ -115,6 +115,7 @@ cd web && python3 -m http.server 8080
 
 - 微信：`haohaoxuexibbb`（加时备注「静寺」）
 - QQ：`2265436738`
+- Telegram：https://t.me/stilltemple （频道，更新与进度都发这里）
 - 加了微信我拉你进群：聊线上空间、独立开发、素材怎么换。不推销，不打卡。
 
 ## 许可

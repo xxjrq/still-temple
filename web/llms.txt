@@ -10,6 +10,14 @@
 - [日本語](/ja)：日本語版
 - [Español](/es)：versión en español
 - [Français](/fr)：version française
+- [关于静寺 / About](/about)：项目说明、许可与交流入口（中英双语）
+
+## 官方渠道
+
+- 主站：https://stilltemple.app/zh
+- 源码：https://github.com/xxjrq/still-temple
+- 镜像：https://gitee.com/xxjrq/still-temple
+- 交流与更新：https://t.me/stilltemple
 
 ## 接口
 

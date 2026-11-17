@@ -12,6 +12,7 @@ Sansa (산사) is an online Buddhist temple that went viral in Korea — over a 
 
 ![Still Temple](docs/screenshot.jpg)
 
+
 ## What it is
 
 A 3D mountain temple you can walk into from a browser.
@@ -103,6 +104,7 @@ No blessing-for-payment, no donations, no phone numbers, no location, no leaderb
 - WeChat: `haohaoxuexibbb` (please note "Still Temple")
 - QQ: `2265436738`
 - Add me on WeChat and I'll put you in the group: online spaces, indie dev, asset pipelines. No promos, no streaks.
+- Telegram: https://t.me/stilltemple
 
 ## Roadmap
 
