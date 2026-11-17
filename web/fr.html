@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet" href="/appearance.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><title>静寺 — Un temple en ligne pour faire une pause</title><meta name="description" content="Faites une pause à 静寺. Explorez un temple bouddhiste en 3D, saluez et inclinez-vous avec d’autres visiteurs, jouez du moktak et égrenez 108 perles de prière dans un espace paisible et partagé."><meta name="theme-color" content="#24251f"><meta property="og:type" content="website"><meta property="og:title" content="静寺 — Un temple en ligne pour faire une pause"><meta property="og:description" content="Faites une pause à 静寺. Explorez un temple bouddhiste en 3D, saluez et inclinez-vous avec d’autres visiteurs, jouez du moktak et égrenez 108 perles de prière dans un espace paisible et partagé."><meta property="og:url" content="/fr"><meta property="og:site_name" content="静寺"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="/og/sansa-rest-20261101-v11.png"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="/fr"><link rel="describedby" href="/llms.txt"><link rel="alternate" href="/" hreflang="ko"><link rel="alternate" href="/zh" hreflang="zh"><link rel="alternate" href="/ja" hreflang="ja"><link rel="alternate" href="/en" hreflang="en"><link rel="alternate" href="/es" hreflang="es"><link rel="alternate" href="/fr" hreflang="fr"><link rel="alternate" href="/zh-Hant" hreflang="zh-Hant"><link rel="alternate" href="/" hreflang="x-default"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"/#website","url":"","name":"静寺","alternateName":["정사","静寺","山寺"],"inLanguage":["ko","zh","ja","en","es","fr","zh-Hant"]},{"@type":"WebPage","@id":"/fr#webpage","url":"/fr","name":"静寺 — Un temple en ligne pour faire une pause","description":"Faites une pause à 静寺. Explorez un temple bouddhiste en 3D, saluez et inclinez-vous avec d’autres visiteurs, jouez du moktak et égrenez 108 perles de prière dans un espace paisible et partagé.","inLanguage":"fr","isPartOf":{"@id":"/#website"}}]}</script><style>.temple-boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:28px;text-align:center;background:#eeece3;color:#4d5144;font-family:system-ui,sans-serif}.temple-boot h1{font-size:24px;font-weight:500;letter-spacing:2px}.temple-boot p{max-width:38em;font-size:13px;line-height:1.8;color:#737565}.boot-dot{width:5px;height:5px;border-radius:50%;background:#a99a7b;animation:breathe 1.8s infinite}@keyframes breathe{50%{opacity:.2}}.info-page{max-width:760px;margin:0 auto;padding:48px 24px 80px;color:#4d5144;font:16px/1.9 system-ui,sans-serif}.info-page h1{font-size:32px;margin:28px 0}.info-page h2{font-size:20px;margin-top:36px}.info-page a{color:#6a6045;text-underline-offset:4px}.info-page .enter-link{display:inline-block;margin:28px 0;padding:12px 24px;border:1px solid #a99a7b;border-radius:28px}body:has(.info-page){overflow:auto;background:#eeece3}.support-options,.support-note{display:none!important}.temple-language{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);z-index:30;display:flex;gap:16px;justify-content:center;font:12px system-ui;color:#efece3}.temple-language a{color:inherit;text-decoration:none;opacity:.65}.temple-language a[aria-current=page]{opacity:1;text-decoration:underline;text-underline-offset:5px}@media(max-width:600px){.temple-language{bottom:98px;gap:14px;font-size:11px}}
+.temple-boot .boot-retry{display:none;color:#6a6045;text-underline-offset:4px}.temple-boot.is-error .boot-retry{display:block}.temple-boot.is-error .boot-dot{display:none}
+#game-bow[hidden], #moonlight-entry[hidden], #moonlight-music[hidden], #moonlight-dance[hidden],
+.is-practicing #moonlight-entry, .is-practicing #moonlight-music, .is-practicing #moonlight-dance { display: none; }
+#moonlight-entry, #moonlight-music { min-height: 40px; }
+#moonlight-entry span { margin-inline-end: 3px; color: #f3d2a0; }
+#moonlight-music:not([hidden]) {
+  display: inline-flex; align-items: center; gap: 9px; min-height: 48px;
+  padding: 5px 12px 5px 6px; border-radius: 15px; text-align: start;
+  background: #302838ed; color: #fff3e6; border: 1px solid #dbaf8caa;
+  box-shadow: 0 3px 14px #180f2290;
+}
+.is-practicing #moonlight-music:not([hidden]) { display: none; }
+.moonlight-music-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: #f2cfaa; color: #402940; }
+.moonlight-music-icon svg { width: 17px; height: 17px; }
+.moonlight-music-copy { display: grid; gap: 2px; font-weight: 650; }
+.moonlight-music-copy small { font-size: 10px; font-weight: 450; letter-spacing: .035em; color: #efd1df; }
+#moonlight-music[aria-pressed="true"] { color: #ffe0e9; border-color: #e4a4c5; }
+#moonlight-music[aria-pressed="true"] .moonlight-music-icon { background: #ebaed5; }
+#moonlight-dance.is-active { color: #ffddb5; }
+body:has(.shop-page){overflow:auto;background:#eeece3}
+.shop-page{max-width:820px;margin:0 auto;padding:52px 24px 96px;color:#4d5144;font:16px/1.85 system-ui,-apple-system,sans-serif}
+.shop-page .shop-back{display:inline-block;margin-bottom:22px;color:#6a6045;text-decoration:none;font-size:13px;letter-spacing:.04em}
+.shop-page h1{font-size:30px;font-weight:500;letter-spacing:.08em;margin:0 0 10px}
+.shop-page h2{font-size:17px;font-weight:600;letter-spacing:.06em;margin:44px 0 14px;padding-bottom:8px;border-bottom:1px solid #d7d0bd}
+.shop-page header p{margin:0;color:#737565;max-width:44em}
+.shop-balance{display:flex;align-items:baseline;gap:10px;margin-top:26px;color:#737565;font-size:13px;letter-spacing:.05em}
+.shop-incense{font-size:30px;color:#4d5144;font-weight:500;font-variant-numeric:tabular-nums}
+.shop-notice{margin:18px 0 0;padding:11px 16px;border:1px solid #d7d0bd;border-radius:14px;background:#f6f3ea;font-size:14px;color:#6a6045}
+.shop-packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:12px}
+.shop-pack{display:grid;gap:2px;padding:16px 14px;border:1px solid #cfc7b4;border-radius:18px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.shop-pack:hover:not(:disabled){background:#f4f0e5;border-color:#a99a7b}
+.shop-pack:disabled{opacity:.45;cursor:default}
+.shop-pack strong{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.shop-pack span{font-size:12px;color:#737565;letter-spacing:.06em}
+.shop-pack em{font-style:normal;margin-top:8px;font-size:14px;color:#6a6045}
+.shop-fine{font-size:12.5px;line-height:1.75;color:#868873;margin:12px 0 0}
+.shop-item{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end;padding:18px;border:1px solid #d7d0bd;border-radius:18px;background:#f6f3ea}
+.shop-item>div:first-child{display:grid;gap:2px}
+.shop-item>div:first-child strong{font-weight:600;letter-spacing:.04em}
+.shop-item>div:first-child span{font-size:12px;color:#868873}
+.shop-owned{font-size:13px;color:#6a6045;letter-spacing:.05em}
+.shop-claim{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.shop-claim label{display:grid;gap:4px;font-size:11.5px;letter-spacing:.05em;color:#868873}
+.shop-claim input{min-width:190px;padding:7px 2px;border:0;border-bottom:1px solid #b9b09a;background:transparent;color:inherit;font:15px system-ui,sans-serif;outline:none}
+.shop-claim input:focus{border-bottom-color:#6a6045}
+.shop-claim button{padding:9px 18px;border:1px solid #a99a7b;border-radius:22px;background:transparent;color:#4d5144;font:14px system-ui,sans-serif;cursor:pointer}
+.shop-claim button:hover:not(:disabled){background:#6a6045;border-color:#6a6045;color:#f6f3ea}
+.shop-claim button:disabled{opacity:.5;cursor:default}
+.shop-patrons{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none}
+.shop-patrons li{font-size:15px;color:#5b5a4a}
+.shop-patrons li::before{content:"·";margin-right:9px;color:#b9b09a}
+.shop-note{margin-top:52px;font-size:12px;line-height:1.8;color:#8a8c78;max-width:52em}
+.shop-languages{display:flex;flex-wrap:wrap;gap:16px;margin-top:26px;font-size:12px}
+.shop-languages a{color:#6a6045;text-decoration:none;opacity:.7}
+.shop-languages a[aria-current=page]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:600px){.shop-page{padding:36px 18px 76px}.shop-page h1{font-size:25px}.shop-item{padding:16px}.shop-claim input{min-width:150px}}
+.shop-signin{margin-top:26px;padding:18px 20px;border:1px solid #d7d0bd;border-radius:18px;background:#f6f3ea;display:grid;gap:10px;justify-items:start}
+.shop-signin strong{font-weight:600;letter-spacing:.04em}
+.shop-signin p{margin:0;font-size:13.5px;line-height:1.7;color:#737565;max-width:44em}
+.shop-signin button{padding:10px 20px;border:1px solid #6a6045;border-radius:22px;background:#6a6045;color:#f6f3ea;font:14px system-ui,sans-serif;cursor:pointer}
+.shop-signin button:hover:not(:disabled){background:#574f39}
+.shop-signin button:disabled{background:transparent;color:#8a8c78;border-color:#cfc7b4;cursor:default}
+.shop-signin small{font-size:12px;color:#8a8c78}
+.shop-account{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:12.5px;color:#737565}
+.shop-account img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+.shop-account button{margin-left:auto;background:none;border:0;color:#6a6045;font:12px system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+/* Make the shop entry a real button instead of another faint language link. */
+.temple-language{flex-wrap:wrap;row-gap:10px}
+.temple-language a[href$="/shop"]{order:-1;padding:9px 16px;border:1px solid #e0c49c;border-radius:22px;background:#2b2620e6;color:#ffe4bd;opacity:1;font-weight:600;letter-spacing:.06em;font-size:12px;text-decoration:none;box-shadow:0 4px 16px #00000059}
+.temple-language a[href$="/shop"]:hover{background:#3a322a}
+.temple-language a[href$="/shop"]::before{content:"🪷";margin-inline-end:6px}
+@media(max-width:600px){.temple-language{bottom:88px;gap:12px}.temple-language a[href$="/shop"]{padding:8px 14px}}
+/* Project CSS appended after the archived shell.css. */
+body:has(.shop-page){overflow:auto;background:#eeece3}
+.shop-page{max-width:820px;margin:0 auto;padding:52px 24px 96px;color:#4d5144;font:16px/1.85 system-ui,-apple-system,sans-serif}
+.shop-page .shop-back{display:inline-block;margin-bottom:22px;color:#6a6045;text-decoration:none;font-size:13px;letter-spacing:.04em}
+.shop-page h1{font-size:30px;font-weight:500;letter-spacing:.08em;margin:0 0 10px}
+.shop-page h2{font-size:17px;font-weight:600;letter-spacing:.06em;margin:44px 0 14px;padding-bottom:8px;border-bottom:1px solid #d7d0bd}
+.shop-page header p{margin:0;color:#737565;max-width:44em}
+.shop-balance{display:flex;align-items:baseline;gap:10px;margin-top:26px;color:#737565;font-size:13px;letter-spacing:.05em}
+.shop-incense{font-size:30px;color:#4d5144;font-weight:500;font-variant-numeric:tabular-nums}
+.shop-notice{margin:18px 0 0;padding:11px 16px;border:1px solid #d7d0bd;border-radius:14px;background:#f6f3ea;font-size:14px;color:#6a6045}
+.shop-packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:12px}
+.shop-pack{display:grid;gap:2px;padding:16px 14px;border:1px solid #cfc7b4;border-radius:18px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.shop-pack:hover:not(:disabled){background:#f4f0e5;border-color:#a99a7b}
+.shop-pack:disabled{opacity:.45;cursor:default}
+.shop-pack strong{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.shop-pack span{font-size:12px;color:#737565;letter-spacing:.06em}
+.shop-pack em{font-style:normal;margin-top:8px;font-size:14px;color:#6a6045}
+.shop-fine{font-size:12.5px;line-height:1.75;color:#868873;margin:12px 0 0}
+.shop-item{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end;padding:18px;border:1px solid #d7d0bd;border-radius:18px;background:#f6f3ea}
+.shop-item>div:first-child{display:grid;gap:2px}
+.shop-item>div:first-child strong{font-weight:600;letter-spacing:.04em}
+.shop-item>div:first-child span{font-size:12px;color:#868873}
+.shop-owned{font-size:13px;color:#6a6045;letter-spacing:.05em}
+.shop-claim{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.shop-claim label{display:grid;gap:4px;font-size:11.5px;letter-spacing:.05em;color:#868873}
+.shop-claim input{min-width:190px;padding:7px 2px;border:0;border-bottom:1px solid #b9b09a;background:transparent;color:inherit;font:15px system-ui,sans-serif;outline:none}
+.shop-claim input:focus{border-bottom-color:#6a6045}
+.shop-claim button{padding:9px 18px;border:1px solid #a99a7b;border-radius:22px;background:transparent;color:#4d5144;font:14px system-ui,sans-serif;cursor:pointer}
+.shop-claim button:hover:not(:disabled){background:#6a6045;border-color:#6a6045;color:#f6f3ea}
+.shop-claim button:disabled{opacity:.5;cursor:default}
+.shop-patrons{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none}
+.shop-patrons li{font-size:15px;color:#5b5a4a}
+.shop-patrons li::before{content:"·";margin-right:9px;color:#b9b09a}
+.shop-note{margin-top:52px;font-size:12px;line-height:1.8;color:#8a8c78;max-width:52em}
+.shop-languages{display:flex;flex-wrap:wrap;gap:16px;margin-top:26px;font-size:12px}
+.shop-languages a{color:#6a6045;text-decoration:none;opacity:.7}
+.shop-languages a[aria-current=page]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:600px){.shop-page{padding:36px 18px 76px}.shop-page h1{font-size:25px}.shop-item{padding:16px}.shop-claim input{min-width:150px}}
+.shop-signin{margin-top:26px;padding:18px 20px;border:1px solid #d7d0bd;border-radius:18px;background:#f6f3ea;display:grid;gap:10px;justify-items:start}
+.shop-signin strong{font-weight:600;letter-spacing:.04em}
+.shop-signin p{margin:0;font-size:13.5px;line-height:1.7;color:#737565;max-width:44em}
+.shop-signin button{padding:10px 20px;border:1px solid #6a6045;border-radius:22px;background:#6a6045;color:#f6f3ea;font:14px system-ui,sans-serif;cursor:pointer}
+.shop-signin button:hover:not(:disabled){background:#574f39}
+.shop-signin button:disabled{background:transparent;color:#8a8c78;border-color:#cfc7b4;cursor:default}
+.shop-signin small{font-size:12px;color:#8a8c78}
+.shop-account{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:12.5px;color:#737565}
+.shop-account img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+.shop-account button{margin-left:auto;background:none;border:0;color:#6a6045;font:12px system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+/* Make the shop entry a real button instead of another faint language link. */
+.temple-language{flex-wrap:wrap;row-gap:10px}
+.temple-language a[href$="/shop"]{order:-1;padding:9px 16px;border:1px solid #e0c49c;border-radius:22px;background:#2b2620e6;color:#ffe4bd;opacity:1;font-weight:600;letter-spacing:.06em;font-size:12px;text-decoration:none;box-shadow:0 4px 16px #00000059}
+.temple-language a[href$="/shop"]:hover{background:#3a322a}
+.temple-language a[href$="/shop"]::before{content:"🪷";margin-inline-end:6px}
+@media(max-width:600px){.temple-language{bottom:88px;gap:12px}.temple-language a[href$="/shop"]{padding:8px 14px}}
+
+.shop-entry{position:fixed;top:20px;right:20px;z-index:33;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid #e0c49c;border-radius:22px;background:#2b2620e6;color:#ffe4bd;font:600 12.5px/1 system-ui,sans-serif;letter-spacing:.06em;cursor:pointer;box-shadow:0 6px 20px #00000059}
+.shop-entry:hover{background:#3a322a}
+html.shop-open,html.shop-open body{overflow:hidden}
+.shop-overlay{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px}
+.shop-overlay[hidden]{display:none}
+.shop-backdrop{position:absolute;inset:0;background:#0b0a08c9;backdrop-filter:blur(7px)}
+.shop-panel{position:relative;width:min(560px,94vw);max-height:86vh;overflow:auto;overscroll-behavior:contain;background:#241f1af2;border:1px solid #e0c49c55;border-radius:22px;box-shadow:0 30px 90px #000000b3;color:#efe9dd;font:15px/1.75 system-ui,sans-serif}
+.shop-panel-head{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px 14px;background:#241f1af2;backdrop-filter:blur(10px);border-bottom:1px solid #ffffff1a}
+.shop-panel-head h2{margin:0;font-size:18px;font-weight:600;letter-spacing:.08em;color:#f4ead8}
+.shop-close{width:32px;height:32px;border-radius:50%;border:1px solid #ffffff2e;background:transparent;color:#d9cfbd;font-size:14px;cursor:pointer}
+.shop-close:hover{background:#ffffff14}
+.shop-panel-body{padding:20px 22px 26px}
+.shop-panel .shop-balance{margin-top:0;color:#c3b8a6}
+.shop-panel .shop-incense{color:#f6e8cf}
+.shop-panel h2{margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid #ffffff1f;font-size:15px;font-weight:600;letter-spacing:.06em;color:#f0e6d6}
+.shop-panel .shop-pack{border-color:#ffffff2b;color:#f4ecdf;background:transparent}
+.shop-panel .shop-pack:hover:not(:disabled){background:#ffffff12;border-color:#e2c9a4}
+.shop-panel .shop-pack:disabled{opacity:.4}
+.shop-panel .shop-pack span{color:#bdb2a0}
+.shop-panel .shop-pack em{color:#e8d4ae}
+.shop-panel .shop-fine{color:#b3a894}
+.shop-panel .shop-item{background:#ffffff0d;border-color:#ffffff24}
+.shop-panel .shop-item>div:first-child strong{color:#f4ecdf}
+.shop-panel .shop-item>div:first-child span{color:#b3a894}
+.shop-panel .shop-claim label{color:#b3a894}
+.shop-panel .shop-claim input{border-bottom-color:#ffffff3d;color:#f6ecdc}
+.shop-panel .shop-claim button{border-color:#e0c49c;color:#ffe4bd}
+.shop-panel .shop-claim button:hover:not(:disabled){background:#e0c49c;color:#241f1a}
+.shop-panel .shop-owned{color:#e8d4ae}
+.shop-panel .shop-signin{background:#ffffff0d;border-color:#ffffff24}
+.shop-panel .shop-signin p{color:#bdb2a0}
+.shop-panel .shop-signin button{background:#e0c49c;border-color:#e0c49c;color:#241f1a}
+.shop-panel .shop-signin button:hover:not(:disabled){background:#f0d9b3}
+.shop-panel .shop-signin small{color:#b3a894}
+.shop-panel .shop-notice{background:#ffffff10;border-color:#ffffff24;color:#f0e2c8}
+@media(max-width:600px){.shop-entry{top:14px;right:14px;padding:9px 13px}.shop-panel{max-height:88vh}.shop-panel-body{padding:16px 16px 22px}}
+
+/* Language switcher lives top-right; the shop button sits under it. */
+.temple-language{top:20px;right:20px;bottom:auto;left:auto;transform:none;justify-content:flex-end;gap:12px;font-size:11px;max-width:calc(100vw - 32px);flex-wrap:wrap}
+.shop-entry{top:52px;right:20px}
+@media(max-width:600px){.temple-language{top:12px;right:12px;gap:10px;font-size:10.5px}.shop-entry{top:44px;right:12px}}
+
+/* Reuse the old support-tool (rice bowl) slot for the shop; languages sit beside it. */
+.support-tool{display:none!important}
+.temple-language{top:28px;right:130px;bottom:auto;left:auto;transform:none;justify-content:flex-end;gap:10px;font-size:11px;max-width:calc(100vw - 150px);flex-wrap:nowrap}
+.shop-entry{top:26px;right:20px}
+@media(max-width:600px){.temple-language{top:16px;right:112px;gap:8px;font-size:10px;max-width:calc(100vw - 130px)}.shop-entry{top:14px;right:12px;padding:8px 12px}}
+
+/* One row of capsule controls: about, language, shop. */
+.temple-controls{position:fixed;top:24px;right:20px;z-index:34;display:flex;align-items:center;gap:8px}
+.temple-controls .about-pill,.temple-controls .lang-toggle,.temple-controls .shop-entry{position:static;display:inline-flex;align-items:center;gap:6px;height:35px;padding:0 14px;border:1px solid #e0c49c;border-radius:22px;background:#2b2620e6;color:#ffe4bd;font:600 12px/1 system-ui,sans-serif;letter-spacing:.04em;text-decoration:none;cursor:pointer;box-shadow:0 6px 20px #00000059}
+.temple-controls .about-pill{padding:0 11px;font-weight:500}
+.temple-controls .lang-pill{position:relative}
+.lang-list{position:absolute;top:44px;right:0;min-width:132px;padding:6px;background:#241f1af5;border:1px solid #e0c49c66;border-radius:14px;box-shadow:0 18px 50px #000000a6;display:grid;gap:2px}
+.lang-list[hidden]{display:none}
+.lang-list a{padding:8px 10px;border-radius:9px;color:#f0e6d6;font:13px system-ui,sans-serif;text-decoration:none}
+.lang-list a:hover,.lang-list a[aria-current=page]{background:#ffffff14}
+@media(max-width:600px){.temple-controls{top:12px;right:12px;gap:6px}.temple-controls .about-pill,.temple-controls .lang-toggle,.temple-controls .shop-entry{height:32px;padding:0 11px;font-size:11px}}
+
+/* Sit beside the game's own top-right tools instead of on top of them. */
+.temple-controls{right:128px}
+@media(max-width:600px){.temple-controls{right:116px}}
+
+/* Drop our controls into the game's glass capsule (nav.game-tools). */
+.game-tools .temple-controls{position:static;right:auto;top:auto;display:flex;align-items:center;gap:2px;padding:0 4px 0 6px;z-index:auto}
+.game-tools .temple-controls .about-pill,.game-tools .temple-controls .lang-toggle,.game-tools .temple-controls .shop-entry{position:static;height:44px;padding:0 10px;border:0;border-radius:22px;background:transparent;box-shadow:none;color:#eef3ee;font:600 12px/1 system-ui,sans-serif;letter-spacing:.04em;text-decoration:none;cursor:pointer}
+.game-tools .temple-controls .about-pill{padding:0 8px;font-weight:500}
+.game-tools .temple-controls .about-pill:hover,.game-tools .temple-controls .lang-toggle:hover,.game-tools .temple-controls .shop-entry:hover{background:#ffffff1a}
+.game-tools .lang-list{top:52px;right:0}
+@media(max-width:600px){.game-tools .temple-controls{gap:0;padding:0 2px}.game-tools .temple-controls .about-pill,.game-tools .temple-controls .lang-toggle,.game-tools .temple-controls .shop-entry{height:40px;padding:0 7px;font-size:11px}}
+.game-tools .about-pill svg{display:block}
+
+/* Persistent Google Play entry point, independent of .temple-controls so the runtime's move of that bar into nav.game-tools never touches it. */
+.play-banner{position:fixed;left:0;right:0;bottom:0;z-index:32;display:flex;align-items:center;justify-content:center;padding:9px 16px;background:#2b2620d9;backdrop-filter:blur(10px);border-top:1px solid #e0c49c40}
+.play-badge{display:inline-block;line-height:0;opacity:.95;transition:opacity .18s ease}
+.play-badge:hover{opacity:1}
+.play-badge img{display:block;height:36px;width:93px}
+@media(max-width:600px){.play-banner{padding:7px 12px}.play-badge img{height:32px;width:82px}}
+</style><link rel="modulepreload" href="/assets/entry-live-762d456ae974.js" fetchpriority="high"><link rel="modulepreload" href="/assets/temple-live-762d456ae974.js" fetchpriority="high"></head><body><div id="app"><main id="sansa-boot" class="temple-boot" role="status"><h1 id="sansa-boot-title">静寺 — Un temple en ligne pour faire une pause</h1><p id="sansa-boot-intro">Un temple en ligne pour partager un moment de silence</p><p id="sansa-boot-message">Faites une pause à 静寺. Explorez un temple bouddhiste en 3D, saluez et inclinez-vous avec d’autres visiteurs, jouez du moktak et égrenez 108 perles de prière dans un espace paisible et partagé.</p><span class="boot-dot"></span><a class="boot-retry" href="">Essayer à nouveau</a><noscript><p>JavaScript est requis pour le temple 3D interactif.</p><ul><li>Explorez un temple en 3D avec un petit moine</li><li>Saluez paumes jointes, inclinez-vous et offrez de l’encens</li><li>Jouez du moktak ou activez la lecture automatique</li><li>Égrenez 108 perles de prière et gardez le compte</li><li>Partagez un espace paisible en temps réel avec d’autres visiteurs</li></ul><a href="/fr/about">À propos de 静寺</a></noscript></main></div><div class="temple-controls"><a class="about-pill" href="/fr/about" aria-label="À propos de 静寺"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 10.8v5.6" stroke-linecap="round"/><circle cx="12" cy="7.7" r="1.15" fill="currentColor" stroke="none"/></svg></a><div class="lang-pill"><button class="lang-toggle" type="button" aria-expanded="false" aria-haspopup="true">Français ▾</button><div class="lang-list" role="menu" hidden><a role="menuitem" hreflang="ko" lang="ko" href="/">한국어</a><a role="menuitem" hreflang="zh" lang="zh" href="/zh">中文</a><a role="menuitem" hreflang="ja" lang="ja" href="/ja">日本語</a><a role="menuitem" hreflang="en" lang="en" href="/en">English</a><a role="menuitem" hreflang="es" lang="es" href="/es">Español</a><a role="menuitem" hreflang="fr" lang="fr" aria-current="page" href="/fr">Français</a><a role="menuitem" hreflang="zh-Hant" lang="zh-Hant" href="/zh-Hant">繁體中文</a></div></div><button class="shop-entry" type="button" aria-haspopup="dialog" aria-controls="sansa-shop-overlay">🪷 <span>Boutique d'encens</span></button></div><div class="play-banner"><a class="play-badge" href="https://play.google.com/store/apps/details?id=ai.mimos.sansatemple&hl=fr" target="_blank" rel="noopener noreferrer"><img src="https://play.google.com/intl/fr/badges/static/images/badges/fr_badge_web_generic.png" alt="Google Play" width="93" height="36" loading="lazy"></a></div><div class="shop-overlay" id="sansa-shop-overlay" hidden><div class="shop-backdrop" data-shop-close></div><section class="shop-panel" role="dialog" aria-modal="true" aria-labelledby="sansa-shop-title"><header class="shop-panel-head"><h2 id="sansa-shop-title">Boutique d'encens</h2><button class="shop-close" type="button" data-shop-close aria-label="Fermer">✕</button></header><div class="shop-panel-body" id="sansa-shop-body"></div></section></div><script type="application/json" id="sansa-shop-text">{"locale":"fr-FR","unit":"bâtonnets","title":"Boutique d'encens","balance":"Votre solde d’encens","packs":"Obtenir de l’encens","buy":"Recevoir","signIn":"Se connecter avec Google","signInBody":"L’encens et les lanternes sont associés à votre compte.","item":"Inscrire un nom sur une lanterne","itemBody":"Accrochez une lanterne à l’entrée et inscrivez un nom dessous.","name":"Nom à inscrire","namePlaceholder":"Un nom, ou laissez le champ vide","claim":"Inscrire mon nom","owned":"Votre nom est déjà inscrit","close":"Fermer","note":"Stripe traite les paiements par carte. Les articles numériques ne sont pas remboursables après leur attribution.","success":"L’encens a été ajouté. Merci.","insufficient":"Il vous manque un peu d’encens.","paymentClosed":"Le paiement n’a pas pu démarrer. Veuillez réessayer dans un instant."}</script><script type="module" src="/shop-overlay.js"></script><script type="module" src="/assets/entry-live-762d456ae974.js"></script><script id="mirror-patch">
+/* 本地镜像补丁：隐藏连接条、按真实房间算人数、解开房间列表接管换房、切语言保留当前房间 */
+(function () {
+  var tries = 0;
+
+  function roomNumber() {
+    var m = location.search.match(/room=maru(?:-(\d+))?/);
+    return m ? (m[1] ? parseInt(m[1], 10) : 1) : 1;
+  }
+
+  function roomId(n) {
+    return n === 1 ? 'maru' : 'maru-' + String(n).padStart(2, '0');
+  }
+
+  function goRoom(n) {
+    var u = new URL(location.href);
+    u.searchParams.set('room', roomId(n));
+    u.searchParams.set('instance', '0');
+    u.searchParams.set('region', 'apac');
+    location.href = u.toString();
+  }
+
+  /* 客户端没有 WebSocket，房间按钮会一直禁用；这里解开并接管点击 */
+  function bindRooms() {
+    var cur = roomNumber();
+    var list = document.querySelectorAll('.room-choice');
+    for (var i = 0; i < list.length; i++) {
+      var b = list[i];
+      var strong = b.querySelector('strong');
+      var m = strong ? (strong.textContent || '').match(/(\d+)/) : null;
+      if (!m) continue;
+      var n = parseInt(m[1], 10);
+      if (n === cur) { b.disabled = true; continue; }
+      if (b.disabled) b.disabled = false;
+      if (b.dataset.mirrorBound) continue;
+      b.dataset.mirrorBound = '1';
+      b.addEventListener('click', function (e) {
+        var s = this.querySelector('strong');
+        var mm = s ? (s.textContent || '').match(/(\d+)/) : null;
+        if (!mm) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        goRoom(parseInt(mm[1], 10));
+      }, true);
+    }
+  }
+
+  /* 语言切换是整页跳转，把当前房间带上，不然会回到第 1 间 */
+  function fixLangLinks() {
+    var links = document.querySelectorAll('a[hreflang]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = a.getAttribute('href');
+      if (!href) continue;
+      var u = new URL(href, location.origin);
+      u.searchParams.set('room', roomId(roomNumber()));
+      u.searchParams.set('instance', '0');
+      u.searchParams.set('region', 'apac');
+      var want = u.pathname + u.search;
+      if (a.getAttribute('href') !== want) a.setAttribute('href', want);
+    }
+  }
+
+  /* 本地没有 socket 后端，用同风格几何体拼几个香客，让场景有人气 */
+  var DOLL_COUNT = 5;
+
+  function spawnDolls(game) {
+    var Sph = null, Cyl = null, MeshC = null, MatC = null;
+    game.scene.traverse(function (o) {
+      if (o.isSkinnedMesh || !o.isMesh) return;
+      if (!MeshC) MeshC = o.constructor;
+      if (!Sph && o.geometry && o.geometry.type === 'SphereGeometry') Sph = o.geometry.constructor;
+      if (!Cyl && o.geometry && o.geometry.type === 'CylinderGeometry') Cyl = o.geometry.constructor;
+      if (!MatC && o.material && o.material.type === 'MeshStandardMaterial') MatC = o.material.constructor;
+    });
+    if (!Sph || !Cyl || !MeshC || !MatC) return false;
+
+    var GroupC = game.self.group.constructor;
+    var mSkin = new MatC({ color: 0xd2a173, roughness: 0.88, metalness: 0 });
+    var mRobe = new MatC({ color: 0xdfe4e2, roughness: 0.92, metalness: 0 });
+    var mApron = new MatC({ color: 0xecdb9b, roughness: 0.9, metalness: 0 });
+    var mFoot = new MatC({ color: 0xe9ece9, roughness: 0.92, metalness: 0 });
+
+    var p0 = game.self.group.position;
+    var spots = [
+      [4.7, -9.6, 3.0],
+      [-1.5, -12.6, 2.9],
+      [3.1, -16.6, 3.2],
+      [-0.1, -5.6, 2.6],
+      [6.4, -3.6, 2.5]
+    ];
+
+    var dolls = [];
+    for (var i = 0; i < spots.length; i++) {
+      var s = spots[i];
+      var g = new GroupC();
+      var head = new MeshC(new Sph(0.185, 20, 16), mSkin);
+      head.position.y = 0.83;
+      var body = new MeshC(new Cyl(0.16, 0.245, 0.4, 16), mRobe);
+      body.position.y = 0.5;
+      var apron = new MeshC(new Cyl(0.165, 0.255, 0.34, 16), mApron);
+      apron.position.set(0, 0.44, 0.05);
+      apron.scale.set(1, 0.9, 0.42);
+      var f1 = new MeshC(new Sph(0.075, 12, 10), mFoot);
+      f1.position.set(-0.09, 0.055, 0.01);
+      var f2 = f1.clone();
+      f2.position.x = 0.09;
+      g.add(head, body, apron, f1, f2);
+      g.traverse(function (o) {
+        o.castShadow = false;
+        o.receiveShadow = false;
+        o.frustumCulled = false;
+      });
+      g.position.set(p0.x + s[0], p0.y, p0.z + s[1]);
+      g.rotation.y = s[2];
+      game.scene.add(g);
+      dolls.push({ group: g, baseY: p0.y, phase: i * 1.3 });
+    }
+    window.__sansaDolls = dolls;
+
+    var t0 = performance.now();
+    setInterval(function () {
+      if (document.hidden) return;
+      var t = (performance.now() - t0) / 1000;
+      for (var k = 0; k < dolls.length; k++) {
+        dolls[k].group.position.y = dolls[k].baseY + Math.sin(t * 1.1 + dolls[k].phase) * 0.015;
+      }
+    }, 100);
+    return true;
+  }
+
+  /* 每帧渲染都会把这个实例传进来，借它拿到 game，等场景就绪再放人 */
+  function hookRuntime() {
+    var rt = window.sansaAppearanceRuntime;
+    if (!rt || rt.__mirrorHooked) return;
+    rt.__mirrorHooked = true;
+    var orig = rt.update;
+    rt.update = function (game) {
+      if (game && game.isReady && !window.__sansaDolls) spawnDolls(game);
+      return orig.call(this, game);
+    };
+  }
+
+  function paint() {
+    var el = document.getElementById('game-presence-count');
+    if (el) {
+      var want = String(1 + DOLL_COUNT).padStart(2, '0') + '/100';
+      if (el.textContent !== want) el.textContent = want;
+    }
+    /* 人数语义占掉了 NN/100，房间号补回标题后面 */
+    var roomEl = document.getElementById('game-room');
+    if (roomEl) {
+      if (!roomEl.dataset.mirrorBase) roomEl.dataset.mirrorBase = (roomEl.textContent || '').trim();
+      var wantRoom = roomEl.dataset.mirrorBase + ' #' + roomNumber();
+      if (roomEl.textContent !== wantRoom) roomEl.textContent = wantRoom;
+    }
+    var conn = document.getElementById('game-connection');
+    if (conn) conn.style.display = 'none';
+    bindRooms();
+    fixLangLinks();
+    hookRuntime();
+  }
+
+  function boot() {
+    if (!document.querySelector('canvas') || document.body.innerText.indexOf('Could not load') >= 0) {
+      if (tries++ < 120) return setTimeout(boot, 500);
+      return;
+    }
+    var st = document.createElement('style');
+    st.textContent = '#game-connection{display:none!important}';
+    document.head.appendChild(st);
+    paint();
+    setInterval(paint, 600);
+  }
+  boot();
+})();
+</script>
+</body></html>

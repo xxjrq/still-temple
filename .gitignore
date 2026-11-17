@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+/stilltemple-server
+/dist/
+/tmp/

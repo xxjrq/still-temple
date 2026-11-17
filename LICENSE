@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Still Temple contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This licence covers the original work of this repository only: the Go server
+(main.go, rooms.go, site.go, main_test.go), build and deployment scripts, and
+the documentation.
+
+It does NOT cover the 3D models, audio, front-end code or fonts under
+web/. Those keep their own licences and attribution requirements, listed in
+NOTICE.md:
+
+- Buddha models: Korean Open Government License Type 1 (KOGL-1)
+- Wooden fish / chanting audio: CC BY 4.0, Kim Yong-bae / Gongu Madang
+- Front-end HTML/JS/CSS: copyright of the original site author
+- Font (SansaQuietUI): shipped with the original site, licence unpublished
