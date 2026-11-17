@@ -13,7 +13,9 @@
 
 ## 2. 音频
 
-- `web/audio/moonlight-yard-v2.mp3` 等：**목탁2 / 염불소리1 · 김용배 · 공유마당 · CC BY 4.0**
+- `web/audio/moktak-hit-natural.wav`：**「목탁2」 · 김용배 · 한국저작권위원회 공유마당 · CC BY 4.0**（原页 <https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200020&wrtSn=13253416>）。改动：单次敲击截取、转单声道、音量归一化、首尾淡入淡出。
+- `web/audio/temple-chant-review-v1.mp3`：**「염불소리1」 · 김용배 · 한국저작권위원회 공유마당 · CC BY 4.0**（原页 <https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200020&wrtSn=13254274>）。改动：整段保留、转 mono MP3 112kbps/48kHz、2-pass loudnorm 至约 -20 LUFS。**此文件是原站标注的“诵读试听/审查版”，未确认是完整《般若心经》读诵，站内不得表述为完整心经或正式法会实录。**
+- `web/audio/moonlight-yard-v2.mp3`：原站自带素材，随仓库一并提供，许可依原站说明。
 - 我们的改动：截取片段、调整音量与压缩格式
 - 许可全文：<https://creativecommons.org/licenses/by/4.0/>
 
