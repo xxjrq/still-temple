@@ -2,6 +2,8 @@
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
+<img src="docs/banner.jpg" alt="Still Temple" width="100%" />
+
 Sansa (산사) is an online Buddhist temple that went viral in Korea — over a million visitors in its first ten-plus days. I rebuilt it as **Still Temple**, and the front end is now open.
 
 - Live: <https://stilltemple.app/en>
@@ -95,6 +97,12 @@ Our own work (Go server, build, docs) is MIT. See [NOTICE.md](NOTICE.md).
 ## What we don't do
 
 No blessing-for-payment, no donations, no phone numbers, no location, no leaderboards, no streak nudges.
+
+## Contact
+
+- WeChat: `haohaoxuexibbb` (please note "Still Temple")
+- QQ: `2265436738`
+- Add me on WeChat and I'll put you in the group: online spaces, indie dev, asset pipelines. No promos, no streaks.
 
 ## Roadmap
 

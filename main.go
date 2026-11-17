@@ -37,6 +37,7 @@ func main() {
 
 	rooms := NewRoomRegistry()
 	presence := NewPresenceStore(90 * time.Second)
+	events := NewEventStore()
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
@@ -46,6 +47,8 @@ func main() {
 	})
 	mux.Handle("/api/rooms", roomsHandler(rooms, presence, *region))
 	mux.Handle("/api/presence", presenceHandler(presence, rooms))
+	mux.Handle("/api/event", eventHandler(events))
+	mux.Handle("/api/stats", statsHandler(events))
 	mux.Handle("/", NewSite(*webDir))
 
 	srv := &http.Server{

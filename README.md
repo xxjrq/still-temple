@@ -2,6 +2,8 @@
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
+<img src="docs/banner.jpg" alt="Still Temple" width="100%" />
+
 韩国那座上线的「AI 线上寺庙」Sansa（산사），十几天涌进上百万人。我把它复刻下来，改名叫 **静寺 / Still Temple**，现在把**前端整套开源**。
 
 - 在线体验：<https://stilltemple.app/zh>
@@ -108,6 +110,12 @@ cd web && python3 -m http.server 8080
 - [ ] 离线可用的 PWA 缓存
 - [ ] 房间热力图（不显示具体人，只显示密度）
 - [x] 六语言、房间分片、心跳人数
+
+## 交流
+
+- 微信：`haohaoxuexibbb`（加时备注「静寺」）
+- QQ：`2265436738`
+- 加了微信我拉你进群：聊线上空间、独立开发、素材怎么换。不推销，不打卡。
 
 ## 许可
 

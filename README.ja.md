@@ -2,6 +2,8 @@
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
+<img src="docs/banner.jpg" alt="Still Temple" width="100%" />
+
 韓国で 100 万人以上が訪れたオンライン寺院 **Sansa（산사）** を、**Still Temple（静寺）** として作り直し、フロントエンド一式を公開しました。
 
 - 公開サイト：<https://stilltemple.app/ja>
@@ -71,6 +73,12 @@ cd web && python3 -m http.server 8080
 ## やらないこと
 
 有料の祈祷・開光・消災・寄付の受付、電話番号・位置情報の収集、ランキング、連続ログインの促し。いずれも行いません。
+
+## 連絡先
+
+- WeChat: `haohaoxuexibbb`（「Still Temple」と一言添えてください）
+- QQ: `2265436738`
+- WeChat を追加するとグループに招待します。オンライン空間、個人開発、素材の作り方の話。宣伝も連続ログインの促しもありません。
 
 ## ロードマップ
 
