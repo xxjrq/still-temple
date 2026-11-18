@@ -82,6 +82,8 @@ bundleSource = replaceOnce(bundleSource, 'connect(){this.destroyed||this.full||t
 bundleSource = replaceOnce(bundleSource, 'function wc(s=!1){clearTimeout(of);const e=matchMedia("(pointer: coarse)").matches;He("game-hint").textContent=Pr?"둘러보며 기다리거나 멈출 수 있어요"', 'function wc(s=!1){clearTimeout(of);const e=matchMedia("(pointer: coarse)").matches;He("game-hint").textContent=Pr?__tr("방석으로 이동 중 · 멈출 수 있어요","正在前往蒲团 · 可点击停止","座布団へ移動中 · タップで停止","Walking to a cushion · tap to stop","En camino al cojín · toca para parar","En route vers un coussin · touchez pour arrêter","正在前往蒲團 · 可點擊停止")', '礼佛移动提示');
 bundleSource = replaceOnce(bundleSource, 'const n=Va?"멈추는 중":t?"멈추기":"절하기"', 'const n=Va?"멈추는 중":s?__tr("중지","停止","停止","Stop","Parar","Arrêter","停止"):t?"멈추기":"절하기"', '礼佛按钮移动反馈');
 bundleSource = replaceOnce(bundleSource, 'new k2(Fg,Sl,{url:sb})', 'new k2(Fg,Sl,{url:sb,localOnly:!0})', '使用新实时传输');
+// Avoid running the archived entry's side effects from the generated scene module.
+bundleSource = replaceOnce(bundleSource, 'import{_ as Ug}from"./'+cfg.entry+'";', 'const Ug=loader=>loader();', 'public scene loader');
 // The repository ships its existing archived scene runtime. Local UI additions share this locale selector.
 bundleSource = 'const __tr=(...labels)=>{const indices={"ko":0,"zh":1,"zh-cn":1,"ja":2,"en":3,"es":4,"fr":5,"zh-hant":6};const lang=document.documentElement.lang.toLowerCase();return labels[indices[lang]??3]??labels[3]};\n' + bundleSource;
 const bundleHash = sha256(Buffer.from(bundleSource));
