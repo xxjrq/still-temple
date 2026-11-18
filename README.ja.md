@@ -7,6 +7,7 @@
 韓国で 100 万人以上が訪れたオンライン寺院 **Sansa（산사）** を、**Still Temple（静寺）** として作り直し、フロントエンド一式を公開しました。
 
 - 公開サイト：<https://stilltemple.app/ja>
+- Android：[Google Play で静寺をダウンロード](https://play.google.com/store/apps/details?id=app.stilltemple.temple)
 - このリポジトリ：フロントエンド + 単一バイナリの Go サーバー。**データベースなし、アカウントなし、計測なし**
 - 正式版：<https://stilltemple.app>（このコードを拡張した版）
 

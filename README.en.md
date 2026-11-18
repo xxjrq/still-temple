@@ -7,6 +7,7 @@
 Sansa (산사) is an online Buddhist temple that went viral in Korea — over a million visitors in its first ten-plus days. I rebuilt it as **Still Temple**, and the front end is now open.
 
 - Live: <https://stilltemple.app/en>
+- Android: [Download Still Temple on Google Play](https://play.google.com/store/apps/details?id=app.stilltemple.temple)
 - This repo: front end + a single Go server. **No database, no accounts, no analytics.**
 - Production: <https://stilltemple.app>, running an enhanced build of this code.
 

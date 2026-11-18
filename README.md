@@ -7,6 +7,7 @@
 韩国那座上线的「AI 线上寺庙」Sansa（산사），十几天涌进上百万人。我把它复刻下来，改名叫 **静寺 / Still Temple**，现在把**前端整套开源**。
 
 - 在线体验：<https://stilltemple.app/zh>
+- Android：[从 Google Play 下载静寺](https://play.google.com/store/apps/details?id=app.stilltemple.temple)
 - 开源版：就是本仓库，浏览器前端与 Go 实时服务，使用内存维护房间、蒲团和供香队列
 - 正式版：<https://stilltemple.app>，有真实用户，跑在上面这份代码的增强版上
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>关于静寺 · 静寺 Still Temple</title>
-<meta name="description" content="静寺 Still Temple 是一间线上的山寺：不用注册、不用留名，进门坐一会儿就走。开源，可自建，附六语言版本与交流入口。">
+<meta name="description" content="静寺 Still Temple 是一间线上的山寺：不用注册、不用留名，进门坐一会儿就走。开源，可自建，支持七种语言。">
 <link rel="canonical" href="https://stilltemple.app/about">
 <link rel="alternate" hreflang="zh-Hans" href="https://stilltemple.app/about">
 <link rel="alternate" hreflang="en" href="https://stilltemple.app/about">
@@ -27,6 +27,11 @@
     line-height:1.85;-webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:720px;margin:0 auto;padding:72px 24px 96px}
+  .page-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+  .page-actions a{display:inline-flex;align-items:center;min-height:44px;padding:6px 14px;border:1px solid var(--line);border-radius:6px;color:var(--paper);font-size:14px}
+  .page-actions a:hover{border-color:var(--gold)}
+  .page-actions .download{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .page-actions a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
   .brand{display:flex;align-items:baseline;gap:10px;margin-bottom:44px}
   .brand b{font-size:20px;letter-spacing:.12em;font-weight:600}
   .brand span{font-size:12px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
@@ -56,23 +61,27 @@
 </head>
 <body>
 <main class="wrap">
+  <nav class="page-actions" aria-label="静寺入口">
+    <a id="temple-back" href="/zh">← 返回静寺</a>
+    <a class="download" href="https://play.google.com/store/apps/details?id=app.stilltemple.temple">Google Play 下载</a>
+  </nav>
   <div class="brand"><b>静寺</b><span>Still Temple</span></div>
 
   <h1>一间线上的山寺</h1>
   <p class="lead">不用注册，不用留名，进门坐一会儿就走。</p>
   <p>首尔有一座山寺，把整座寺院做进了网页：你能在佛堂里看见别人也坐着，能听见远处的钟，能拨动一串念珠。静寺是这件事的中文版本，也是一个可以自己部署的开源项目。</p>
-  <p>没有账号体系，没有排行榜，也没有聊天框。你来的时候，系统随机给一个法名；走的时候，名字就消失。我们不保存你是谁。</p>
+  <p>没有账号体系，没有排行榜，也没有聊天框。你可以匿名进入，和同房的访客一起停留。</p>
 
   <h2>在里面能做什么</h2>
   <ul>
     <li>走进一间佛堂，坐下，看烛火和烟。</li>
     <li>拨动 108 颗念珠，可以记下自己拨了几轮。</li>
     <li>看见同一间屋子里还有别人在坐，不打扰彼此。</li>
-    <li>换语言：中文、韩文、日文、英文、西班牙文、法文。</li>
+    <li>可切换简体中文、繁体中文、韩文、日文、英文、西班牙文和法文。</li>
   </ul>
 
   <h2>为什么开源</h2>
-  <p>这个项目的前端来自韩国原站的公开产物，佛像与音效按各自许可使用，具体署名写在 <a href="https://github.com/xxjrq/still-temple/blob/main/NOTICE.md" rel="noopener">NOTICE</a> 里。后端是我们用 Go 重写的，只依赖标准库，一个二进制就能跑起来。</p>
+  <p>这个项目的前端来自韩国原站的公开产物，佛像与音效按各自许可使用，具体署名写在 <a href="https://github.com/xxjrq/still-temple/blob/main/NOTICE.md" rel="noopener">NOTICE</a> 里。Go 后端可编译为单一二进制文件。</p>
   <p>代码放在 <a href="https://github.com/xxjrq/still-temple" rel="noopener">GitHub</a>，国内镜像在 <a href="https://gitee.com/xxjrq/still-temple" rel="noopener">Gitee</a>。想自己搭一间，克隆下来按 README 走就行；想改成你自己的一间，改文案和贴图也够。</p>
 
   <h2>进来聊聊</h2>
@@ -85,8 +94,8 @@
   <div class="rule"></div>
 
   <h2>About (English)</h2>
-  <p>Still Temple is a mountain temple you can enter from a browser. No sign-up, no name, no chat. You step in, sit for a while, and leave — the name you were given disappears with you.</p>
-  <p>The front end comes from the original Korean site's public build; the Go backend is written from scratch with the standard library only. Sources and credits are listed in <a href="https://github.com/xxjrq/still-temple/blob/main/NOTICE.md" rel="noopener">NOTICE</a>. Clone it and run your own.</p>
+  <p>Still Temple is a mountain temple you can enter from a browser. Visit anonymously, sit for a while, and leave whenever you like.</p>
+  <p>The front end comes from the original Korean site's public build. The Go backend compiles to a single binary. Sources and credits are listed in <a href="https://github.com/xxjrq/still-temple/blob/main/NOTICE.md" rel="noopener">NOTICE</a>. Clone it and run your own.</p>
   <p>Talk to us: <a href="https://t.me/stilltemple" rel="noopener">t.me/stilltemple</a> · GitHub Issues. We don't run ads and we don't sell anything.</p>
 
   <footer>
@@ -99,6 +108,19 @@
     <a href="/llms.txt">llms.txt</a>
   </footer>
 </main>
+<script>
+  (() => {
+    const back = document.getElementById('temple-back');
+    const locale = location.pathname.match(/^\/(zh|zh-cn|zh-hant|ko|en|ja|es|fr)\/about\/?$/i);
+    if (locale) back.href = '/' + locale[1];
+    if (!document.referrer) return;
+    const previous = new URL(document.referrer);
+    const scene = /^\/(?:index\.html|(?:zh|zh-cn|zh-hant|ko|en|ja|es|fr)(?:\.html)?\/?)?$/i;
+    if (previous.origin === location.origin && scene.test(previous.pathname)) {
+      back.href = previous.pathname + previous.search + previous.hash;
+    }
+  })();
+</script>
 <script defer src="/assets/metrics.js"></script>
 </body>
 </html>

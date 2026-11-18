@@ -7,6 +7,7 @@
 한국에서 100만 명 넘게 찾아온 온라인 사찰 **산사(Sansa)** 를 **정사(Still Temple)** 로 다시 만들고, 프런트엔드 전체를 공개했습니다.
 
 - 라이브: <https://stilltemple.app>
+- Android: [Google Play에서 Still Temple 다운로드](https://play.google.com/store/apps/details?id=app.stilltemple.temple)
 - 이 저장소: 프런트엔드 + 단일 Go 서버. **데이터베이스 없음, 계정 없음, 분석 도구 없음**
 - 정식 버전: <https://stilltemple.app> (이 코드를 확장한 버전)
 
