@@ -23,6 +23,26 @@ func TestRoomRegistry(t *testing.T) {
 	}
 }
 
+func TestWebSocketOriginPolicy(t *testing.T) {
+	for _, tc := range []struct {
+		origin, host string
+		want         bool
+	}{
+		{"http://127.0.0.1:58470", "127.0.0.1:58470", true},
+		{"https://localhost", "stilltemple.app", true},
+		{"capacitor://localhost", "stilltemple.app", true},
+		{"https://attacker.example", "stilltemple.app", false},
+		{"", "stilltemple.app", true},
+	} {
+		r := httptest.NewRequest(http.MethodGet, "http://"+tc.host+"/ws", nil)
+		r.Host = tc.host
+		r.Header.Set("Origin", tc.origin)
+		if got := liveUpgrader.CheckOrigin(r); got != tc.want {
+			t.Errorf("origin %q host %q: got %v, want %v", tc.origin, tc.host, got, tc.want)
+		}
+	}
+}
+
 func TestPresenceMoveAndTTL(t *testing.T) {
 	p := NewPresenceStore(50 * time.Millisecond)
 	p.Heartbeat("u1", "maru-02")
@@ -57,7 +77,7 @@ func TestRoomsAPI(t *testing.T) {
 }
 
 func TestSiteLanguageRoutes(t *testing.T) {
-	s := NewSite("../web")
+	s := NewSite("./web")
 	rec := httptest.NewRecorder()
 	s.ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/zh", nil))
 	if rec.Code != 200 {

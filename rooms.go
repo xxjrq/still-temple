@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 )
@@ -16,10 +17,11 @@ const RoomCount = 100
 
 // Room 是 /api/rooms 返回的单条记录，字段对齐原站前端消费者的读取习惯。
 type Room struct {
-	ID       string `json:"id"`
-	Number   int    `json:"number"`
-	Capacity int    `json:"capacity"`
-	Count    int    `json:"count"`
+	ID        string `json:"id"`
+	Number    int    `json:"number"`
+	Capacity  int    `json:"capacity"`
+	Count     int    `json:"count"`
+	LiveCount int    `json:"liveCount"`
 }
 
 // RoomRegistry 生成固定的 100 间分片，id 规则为 maru、maru-02 … maru-100。
@@ -57,7 +59,7 @@ func (r *RoomRegistry) NumberOf(id string) int {
 }
 
 // Snapshot 返回带人数的房间列表。人数 = 真实心跳在线 + 氛围人数（封顶容量）。
-func (r *RoomRegistry) Snapshot(p *PresenceStore) []Room {
+func (r *RoomRegistry) Snapshot(p *PresenceStore, hubs ...*LiveHub) []Room {
 	out := make([]Room, len(r.rooms))
 	copy(out, r.rooms)
 	for i := range out {
@@ -68,20 +70,24 @@ func (r *RoomRegistry) Snapshot(p *PresenceStore) []Room {
 			total = out[i].Capacity
 		}
 		out[i].Count = total
+		if len(hubs) > 0 && hubs[0] != nil {
+			out[i].LiveCount = hubs[0].Count(out[i].ID)
+		}
 	}
 	return out
 }
 
-// ambientResidents 给空房一点人气，数值只由房号决定，重启也不会跳变。
-// 1 号房是原站默认入口，固定多给几个，其余房间 0–5 人。
+// ambientResidents 是"氛围人数"：让每间房不至于空得可怕，数值只由房号决定，
+// 重启也不会跳变（所以看起来像是有人一直在）。
+// 注意：这是模拟值，不是真实在线人数，对外的日活/访问统计一律不采用它，只用 /api/stats 的真实埋点。
 func ambientResidents(number int) int {
 	if number == 1 {
-		return 4
+		return 6 // 默认入口房，给多一点
 	}
-	return (number * 7) % 6
+	return 2 + (number*7)%5 // 2–6 人
 }
 
-func roomsHandler(rooms *RoomRegistry, p *PresenceStore, region string) http.Handler {
+func roomsHandler(rooms *RoomRegistry, p *PresenceStore, region string, live ...*LiveHub) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet && r.Method != http.MethodHead {
 			w.Header().Set("Allow", "GET, HEAD")
@@ -97,7 +103,7 @@ func roomsHandler(rooms *RoomRegistry, p *PresenceStore, region string) http.Han
 			OK     bool   `json:"ok"`
 			Region string `json:"region"`
 			Rooms  []Room `json:"rooms"`
-		}{true, region, rooms.Snapshot(p)})
+		}{true, region, rooms.Snapshot(p, live...)})
 	})
 }
 
@@ -110,7 +116,26 @@ func presenceHandler(p *PresenceStore, rooms *RoomRegistry) http.Handler {
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.Header().Set("Cache-Control", "no-store")
 
+		// 前端仍会尝试用 WebSocket 连这个路径做多人同步；我们暂未实现实时服务，
+		// 明确回 426 而不是 404，避免把"功能未实现"伪装成"地址不存在"。
+		if strings.Contains(r.Header.Get("Upgrade"), "websocket") {
+			w.Header().Set("Connection", "Upgrade")
+			w.Header().Set("Upgrade", "websocket")
+			http.Error(w, `{"ok":false,"error":"realtime sync not implemented"}`, http.StatusUpgradeRequired)
+			return
+		}
+
 		switch r.Method {
+		case http.MethodGet, http.MethodHead:
+			room := r.URL.Query().Get("room")
+			if room == "" || !rooms.Has(room) {
+				room = "maru"
+			}
+			_ = json.NewEncoder(w).Encode(struct {
+				OK    bool   `json:"ok"`
+				Room  string `json:"room"`
+				Count int    `json:"count"`
+			}{true, room, minInt(p.Count(room)+ambientResidents(rooms.NumberOf(room)), RoomCapacity)})
 		case http.MethodPost, http.MethodPut:
 			var req request
 			if err := json.NewDecoder(http.MaxBytesReader(w, r.Body, 4096)).Decode(&req); err != nil {

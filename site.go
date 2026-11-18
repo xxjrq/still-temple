@@ -20,6 +20,7 @@ var langRoutes = map[string]string{
 	"/es":    "es.html",
 	"/fr":    "fr.html",
 	"/zh-cn": "zh.html",
+	"/zh-hant": "zh-Hant.html",
 }
 
 // Site 托管静态站点：语言路由、缓存头、预压缩文件。
@@ -37,8 +38,15 @@ func (s *Site) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	clean := path.Clean("/" + strings.TrimPrefix(r.URL.Path, "/"))
-	if file, ok := langRoutes[clean]; ok {
+	// 语言路径大小写不敏感：/zh-Hant 与 /zh-hant 都能命中
+	if file, ok := langRoutes[strings.ToLower(clean)]; ok {
 		s.sendFile(w, r, file, true)
+		return
+	}
+
+	// /about 以及各语言前缀下的 /xx/about 都指向同一份说明页
+	if clean == "/about" || strings.HasSuffix(clean, "/about") {
+		s.sendFile(w, r, "about.html", true)
 		return
 	}
 
@@ -116,9 +124,39 @@ func withHeaders(next http.Handler) http.Handler {
 	})
 }
 
+// withCORS 只放行 Capacitor app 的本地源访问 /api/*，网页同源请求不受影响。
+func withCORS(next http.Handler) http.Handler {
+	allowed := map[string]bool{
+		"capacitor://localhost": true,
+		"https://localhost":     true,
+		"http://localhost":      true,
+	}
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		origin := r.Header.Get("Origin")
+		if origin != "" && allowed[origin] && strings.HasPrefix(r.URL.Path, "/api/") {
+			w.Header().Set("Access-Control-Allow-Origin", origin)
+			w.Header().Set("Access-Control-Allow-Credentials", "true")
+			w.Header().Add("Vary", "Origin")
+			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+			w.Header().Set("Access-Control-Max-Age", "86400")
+			if r.Method == http.MethodOptions {
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+		}
+		next.ServeHTTP(w, r)
+	})
+}
+
 // withLogging 只打印接口与错误，静态资源不刷日志。
 func withLogging(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// WebSocket handlers must retain the underlying Hijacker implementation.
+		if r.URL.Path == "/ws" && strings.EqualFold(r.Header.Get("Upgrade"), "websocket") {
+			next.ServeHTTP(w, r)
+			return
+		}
 		start := time.Now()
 		rec := &statusRecorder{ResponseWriter: w, status: http.StatusOK}
 		next.ServeHTTP(rec, r)

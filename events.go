@@ -38,6 +38,14 @@ func (s *EventStore) add(p eventPayload) {
 	switch p.Event {
 	case "enter":
 		s.enters++
+		// 前端把语言和房间号都挂在 enter 事件上发过来，这里一并记下，
+		// 否则 langs / top_rooms 永远是空。
+		if p.Lang != "" && len(p.Lang) <= 8 {
+			s.langs[p.Lang]++
+		}
+		if p.Room >= 1 && p.Room <= 100 {
+			s.rooms[p.Room]++
+		}
 	case "leave", "hide":
 		if p.Dur > 0 && p.Dur < 60*60*6 { // 超过 6 小时视为挂机，不计入
 			s.dwellNs += int64(p.Dur)

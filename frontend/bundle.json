@@ -1,0 +1,20 @@
+{
+  "bundle": "temple-live-b8f3c1a2.js",
+  "entry": "entry-live-b8f3c1a2.js",
+  "modules": [
+    "room.js",
+    "live.js",
+    "local-greet.js",
+    "boot-guard.js",
+    "mobile-layout.js"
+  ],
+  "pages": [
+    "index.html",
+    "zh.html",
+    "ja.html",
+    "en.html",
+    "es.html",
+    "fr.html",
+    "zh-Hant.html"
+  ]
+}
